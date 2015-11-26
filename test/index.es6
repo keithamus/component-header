@@ -20,10 +20,6 @@ describe(`A header`, () => {
       title: 'Required',
     }));
     const header = shallowRenderer.getRenderOutput();
-    it(`always renders a Header tag as main wrapper with a header className`, () => {
-      header.type.should.equal('header');
-      header.props.className.should.equal('header');
-    });
     it(`has specific attributes on Header tag`, () => {
       header.props.itemScope.should.equal(true);
       header.props.itemProp.should.equal('article');
@@ -31,8 +27,8 @@ describe(`A header`, () => {
       header.props.itemType.should.equal('http://schema.org/Article');
     });
     describe('it is composed by 2 main blocks', () => {
-      const groupImage = header.props.children[0];
-      const groupText = header.props.children[1];
+      const groupImage = header.props.children.props.children[0];
+      const groupText = header.props.children.props.children[1];
       describe(`it has a text group`, () => {
         it(`the text group always renders a title that is mandatory and wrapped on an H1 tag`, () => {
           const title = groupText.props.children[0];
@@ -53,7 +49,7 @@ describe(`A header`, () => {
             },
           }));
           const headerWithImage = shallowRenderer.getRenderOutput();
-          const image = headerWithImage.props.children[0].props.children;
+          const image = headerWithImage.props.children.props.children[0].props.children;
           image.props.className.should.equal('header__img');
           image.type.should.equal('img');
         });
@@ -67,7 +63,7 @@ describe(`A header`, () => {
       text: 'Text',
     }));
     const header = shallowRenderer.getRenderOutput();
-    const groupText = header.props.children[1];
+    const groupText = header.props.children.props.children[1];
     it(`it can render a flytitle in a h2 tag with a header__flytitle className`, () => {
       const flyTitle = groupText.props.children[0];
       flyTitle.type.should.equal('h2');
