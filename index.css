@@ -2,8 +2,8 @@
 @import '@economist/component-palette';
 @import '@economist/component-grid';
 
-@custom-media --viewport-big (width >= 36rem);
-@custom-media --viewport-small (width <= 35.9999rem);
+@custom-media --header-viewport-big (width >= 36rem);
+@custom-media --header-viewport-small (width <= 35.9999rem);
 
 .header {
   font-size: 1rem;
@@ -67,7 +67,7 @@
   vertical-align: middle;
 }
 
-@media (--viewport-small) {
+@media (--header-viewport-small) {
   .header__wrapper {
     padding:  var(--header-padding-top, 150px) var(--grid-gutter-m) var(--header-padding-bottom, 0);
     height: var(--header-height, 430px);
@@ -88,7 +88,7 @@
   }
 }
 /* Desktop version */
-@media (--viewport-big) {
+@media (--header-viewport-big) {
   .header {
     height: var(--header-viewport-big-height, 300px);
   }

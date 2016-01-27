@@ -31,7 +31,7 @@
   /* For browsers that support calc, this makes sure we show both characters */
   background-position: calc(80% - 34vw) 0px;
 }
-@media (--viewport-big) {
+@media (--header-viewport-big) {
   .header__follow-us-title,
   .header__follow-us-icons {
     line-height: 40px;
