@@ -19,6 +19,10 @@ body {
   background: white;
 }
 
+.component-panel {
+  overflow-x: scroll;
+}
+
 @media screen and (min-width: 800px) {
   html {
     font-size: 20px;

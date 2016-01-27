@@ -20,15 +20,9 @@
   margin: 0 auto;
 }
 
-.header__group-text {
-  display: flex;
-  flex-direction: column;
+.header__content {
   max-width: calc(1rem*30);
   text-align: center;
-}
-/* We will use the image as background on mobile, so let's hide the <img> */
-.header__img {
-  display: none;
 }
 
 .header__title {
@@ -37,7 +31,6 @@
   letter-spacing: var(--text-letter-spacing-body-bold-on-step-5);
   font-weight: bold;
   font-family: 'Halifax Bold';
-  order: 2;
   margin: 0;
 }
 
@@ -58,10 +51,10 @@
   font-weight: lighter;
   font-family: 'Halifax Regular';
   color: var(--header__flytitle-color, var(--color-economist));
-  order: 1;
   margin-bottom: var(--grid-spacing-mouse);
-  background: color(var(--color-thimphu) alpha(55%));
   padding: var(--header__flytitle-padding-h, var(--grid-spacing-mouse)) var(--header__flytitle-padding-v, var(--grid-spacing-fox));
+  display: inline-block;
+  background-color: var(--header__flytitle-background-color, color(var(--color-thimphu) a(-40%)));
 }
 
 .header__text {
@@ -70,21 +63,14 @@
   font-weight: lighter;
   font-family: 'Halifax Light';
   color: var(--header__text-color, var(--color-thimphu));
-  order: 3;
   margin-top: var(--header__text-margin-top, 0);
-  flex: 1;
   vertical-align: middle;
-}
-.header__additional-element {
-  order: 4;
 }
 
 @media (--viewport-small) {
   .header__wrapper {
-    padding:  var(--header-padding-top, 150px) var(--grid-gutter-m) var(--header-padding-bottom, var(--grid-spacing-hedgehog));
+    padding:  var(--header-padding-top, 150px) var(--grid-gutter-m) var(--header-padding-bottom, 0);
     height: var(--header-height, 430px);
-    flex: 1;
-    display: flex;
   }
   .header--large-mode .header__title {
     padding:
@@ -93,9 +79,6 @@
       var(--header__title-padding-bottom, var(--grid-spacing-fox));
     /* Prevent overlapping with the illustration and the text. */
     min-height: 3em;
-  }
-  .header__group-text {
-    text-align: center;
   }
   .header__flytitle {
     margin: auto;
@@ -107,18 +90,16 @@
 /* Desktop version */
 @media (--viewport-big) {
   .header {
-    background-image: none !important;
-    padding:  var(--header-padding-top, var(--grid-spacing-hedgehog)) var(--grid-gutter-m) var(--header-padding-bottom, var(--grid-spacing-hedgehog));
-  }
-  .header__wrapper {
-    flex-direction: row-reverse;
-    display: flex;
     height: var(--header-viewport-big-height, 300px);
   }
+  .header__wrapper {
+    padding:  var(--header-padding-top, var(--grid-spacing-hedgehog)) var(--grid-gutter-m) var(--header-padding-bottom, 0);
+  }
 
-  .header__group-text {
+  .header__content {
+    width: 50%;
+    margin-right: auto;
     text-align: left;
-    align-items: flex-start;
   }
 
   .header__text {
@@ -129,24 +110,6 @@
     margin-top: 0;
   }
 
-  .header__group-text,
-  .header__group-image {
-    flex: 1;
-  }
-
-  .header__group-image {
-    position: relative;
-  }
-
-  .header__img {
-    display: block;
-    height: 100%;
-    right: 0;
-    position: absolute;
-    top: 0;
-    left: auto;
-    max-width: 100%;
-  }
   .header--large-mode .header__title {
     padding: var(--header__title-padding-top, var(--grid-spacing-mouse)) 0 var(--header__title-padding-bottom, var(--grid-spacing-fox));
   }

@@ -1,15 +1,5 @@
 @import "@economist/component-palette";
 
-.header {
-  border-bottom: solid 10px;
-  background-position: center -60px;
-  -webkit-font-smoothing: antialiased;
-}
-
-.header--blog21003976{
-  border-bottom-color: var(--color-boston);
-  background: var(--color-chicago);
-}
 .header__additional-element {
   color: var(--header__additional-element-color, var(--color-thimphu));
   margin: var(--grid-spacing-sheep) 0;
@@ -29,18 +19,18 @@
 .header__additional-element {
   margin: 0;
 }
-/* This part is temporary, should be removed when right background illustation will be provided. */
-.header--large-mode .header__title {
-  text-shadow: 2px -2px var(--header__title-text-shadow, var(--color-chicago)),
-  -2px 2px var(--header__title-text-shadow, var(--color-chicago)),
-  -2px -2px var(--header__title-text-shadow, var(--color-chicago)),
-  2px 2px var(--header__title-text-shadow, var(--color-chicago));
-}
 
-.header__text {
-  background: var(--color-chicago);
+.header--blog21003976 {
+  background-color: #004388;
+  background-size:
+    calc(
+      var(--header-image-aspect-ratio, 4.51) * calc(var(--header-height, 430px) + var(--header-padding-top, 150px))
+    )
+    calc(var(--header-height, 430px) + var(--header-padding-top, 150px));
+  background-position: 90% 0px;
+  /* For browsers that support calc, this makes sure we show both characters */
+  background-position: calc(80% - 34vw) 0px;
 }
-
 @media (--viewport-big) {
   .header__follow-us-title,
   .header__follow-us-icons {
@@ -50,5 +40,12 @@
   }
   .header__follow-us-icons {
     padding: 0 var(--grid-gutter-s);
+  }
+  .header--blog21003976 {
+    background-size:
+      calc(var(--header-image-aspect-ratio, 4.51) * var(--header-viewport-big-height, 300px))
+      var(--header-viewport-big-height, 300px)
+    ;
+    background-position: 100% 0px;
   }
 }
