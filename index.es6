@@ -13,7 +13,7 @@ export default class Header extends React.Component {
       itemType: React.PropTypes.string,
       itemProp: React.PropTypes.string,
       className: React.PropTypes.string,
-      children: React.PropTypes.arrayOf(React.PropTypes.element),
+      children: React.PropTypes.node,
       link: React.PropTypes.object,
     };
   }
@@ -25,29 +25,17 @@ export default class Header extends React.Component {
   }
   render() {
     const headerContent = [];
-    const groups = [];
     const imageSrc = this.props.image && this.props.image.src;
-    let imageClasses = [ 'header__group-image' ];
-    let inlineStyle = null;
+    let imageAsBackground = {};
     if (imageSrc) {
-      imageClasses = imageClasses.concat([ 'header__group-image--empty' ]);
-      inlineStyle = { backgroundImage: `url(${this.props.image.src})` };
+      imageAsBackground = { backgroundImage: `url(${imageSrc})` };
     }
-    const image = imageSrc ?
-      (<img {...this.props.image} itemProp="image" className="header__img" />) :
-      null;
-    groups.push((
-      <div className={imageClasses.join(' ')}
-        key={`header__group-image`}
-      >
-        {image}
-      </div>));
     if (this.props.flyTitle && !this.props.smallMode) {
       headerContent.push((
         <h2
           className="header__flytitle"
           itemProp="alternativeHeadline"
-          key={`header__flytitle`}
+          key="flytitle"
         >{this.props.flyTitle}</h2>
       ));
     }
@@ -59,14 +47,14 @@ export default class Header extends React.Component {
     <h1
       className="header__title"
       itemProp="headline"
-      key={`header__title`}
+      key="title"
     >{title}</h1>));
     if (this.props.text && !this.props.smallMode) {
       headerContent.push((
         <div
           className="header__text"
           itemProp="description"
-          key={`header__text`}
+          key="text"
           /* eslint-disable react/no-danger */
           dangerouslySetInnerHTML={{
             '__html': this.props.text,
@@ -77,18 +65,16 @@ export default class Header extends React.Component {
       headerContent.push((
         <div
           className="header__additional-element"
-          key={`header__additional-element`}
+          key="additional"
         >
-        {this.props.children}
+          {this.props.children}
         </div>));
     }
-    groups.push((
-      <div className="header__group-text"
-        key={`header__grouptext`}
-      >
+    const text = (
+      <div className="header__content">
         {headerContent}
       </div>
-    ));
+    );
 
     let className = 'header';
     if (this.props.className) {
@@ -105,10 +91,10 @@ export default class Header extends React.Component {
         className={className}
         itemScope itemType={this.props.itemType} itemProp={this.props.itemProp}
         role="header"
-        style={inlineStyle}
+        style={imageAsBackground}
       >
         <div className="header__wrapper">
-          {groups}
+          {text}
         </div>
       </header>
     );

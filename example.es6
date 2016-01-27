@@ -2,13 +2,17 @@ import React from 'react';
 import Icon from '@economist/component-icon';
 import Header from './';
 
+let base = '';
+if (typeof location != 'undefined' && /github.io\//.test(location + '')) {
+  base = '.';
+}
+
 export default (
   <div>
     <Header
       className="header--blog21003976"
-      smallMode
       image={{
-        src: `http://cdn.static-economist.com/sites/default/files/external/test-assets/democracy-in-america.svg`,
+        src: `${base}/assets/header-democracyinamerica.svg`,
       }}
       flyTitle="Some type here"
       title="Blog name goes here"

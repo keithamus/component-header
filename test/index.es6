@@ -27,31 +27,13 @@ describe(`A header`, () => {
       header.props.itemType.should.equal('http://schema.org/Article');
     });
     describe('it is composed by 2 main blocks', () => {
-      const groupImage = header.props.children.props.children[0];
-      const groupText = header.props.children.props.children[1];
+      const headerContent = header.props.children.props.children;
       describe(`it has a text group`, () => {
         it(`the text group always renders a title that is mandatory and wrapped on an H1 tag`, () => {
-          const title = groupText.props.children[0];
-          groupText.props.className.should.equal('header__group-text');
+          const title = headerContent.props.children[0];
+          headerContent.props.className.should.equal('header__content');
           title.type.should.equal('h1');
           title.props.className.should.equal('header__title');
-        });
-      });
-      describe(`it has a image group`, () => {
-        it('the image group is always present to keep layout consistent also if image is not present', () => {
-          groupImage.props.className.should.equal('header__group-image');
-        });
-        it('the image can optionaly be provided and rendered with a className header__img', () => {
-          shallowRenderer.render(React.createElement(Header, {
-            title: 'Required',
-            image: {
-              src: `http://cdn.static-economist.com/sites/default/files/external/test-assets/democracy-in-america.svg`,
-            },
-          }));
-          const headerWithImage = shallowRenderer.getRenderOutput();
-          const image = headerWithImage.props.children.props.children[0].props.children;
-          image.props.className.should.equal('header__img');
-          image.type.should.equal('img');
         });
       });
     });
@@ -63,14 +45,14 @@ describe(`A header`, () => {
       text: 'Text',
     }));
     const header = shallowRenderer.getRenderOutput();
-    const groupText = header.props.children.props.children[1];
+    const headerContent = header.props.children.props.children;
     it(`it can render a flytitle in a h2 tag with a header__flytitle className`, () => {
-      const flyTitle = groupText.props.children[0];
+      const flyTitle = headerContent.props.children[0];
       flyTitle.type.should.equal('h2');
       flyTitle.props.className.should.equal('header__flytitle');
     });
     it(`it can render a text with a header__text className`, () => {
-      const text = groupText.props.children[2];
+      const text = headerContent.props.children[2];
       text.props.className.should.equal('header__text');
     });
   });
