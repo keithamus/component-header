@@ -11,9 +11,8 @@ export default (
   <div>
     <Header
       className="header--blog21003976"
-      image={{
-        src: `${base}/assets/header-democracyinamerica.svg`,
-      }}
+      image={`${base}/assets/header-democracyinamerica.svg`}
+      mobileImage={`${base}/assets/header-democracyinamerica-mobile.svg`}
       flyTitle="Some type here"
       title="Blog name goes here"
       text="There are many reasons why sceptics might find fault with the 17 for

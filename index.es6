@@ -3,9 +3,8 @@ import React from 'react';
 export default class Header extends React.Component {
   static get propTypes() {
     return {
-      image: React.PropTypes.shape({
-        src: React.PropTypes.string,
-      }),
+      image: React.PropTypes.string,
+      mobileImage: React.PropTypes.string,
       flyTitle: React.PropTypes.string,
       smallMode: React.PropTypes.bool,
       title: React.PropTypes.string.isRequired,
@@ -25,11 +24,12 @@ export default class Header extends React.Component {
   }
   render() {
     const headerContent = [];
-    const imageSrc = this.props.image && this.props.image.src;
-    let imageAsBackground = {};
-    if (imageSrc) {
-      imageAsBackground = { backgroundImage: `url(${imageSrc})` };
-    }
+    const imageAsBackground = this.props.image ?
+      { backgroundImage: `url(${this.props.image})` } :
+      {};
+    const mobileImageAsBackground = this.props.mobileImage ?
+      { backgroundImage: `url(${this.props.mobileImage})` } :
+      {};
     if (this.props.flyTitle && !this.props.smallMode) {
       headerContent.push((
         <h2
@@ -93,8 +93,10 @@ export default class Header extends React.Component {
         role="header"
         style={imageAsBackground}
       >
-        <div className="header__wrapper">
-          {text}
+        <div className="header__mobile-image" style={mobileImageAsBackground}>
+          <div className="header__wrapper">
+            {text}
+          </div>
         </div>
       </header>
     );
