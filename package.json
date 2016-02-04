@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-header",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Reusable header for collections pages or detail pages",
   "author": "The Economist (http://economist.com)",
   "license": "MIT",
