@@ -111,6 +111,7 @@
 
   .header__content {
     width: 50%;
+    min-width: 35ch;
     margin-right: auto;
     text-align: left;
   }
