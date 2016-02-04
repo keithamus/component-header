@@ -8,6 +8,14 @@
 .header {
   font-size: 1rem;
   position: relative;
+}
+
+.header__mobile-image {
+  height: 100%;
+}
+
+.header,
+.header__mobile-image {
   background-repeat: no-repeat;
 }
 
@@ -52,7 +60,8 @@
   font-family: 'Halifax Regular';
   color: var(--header__flytitle-color, var(--color-economist));
   margin-bottom: var(--grid-spacing-mouse);
-  padding: var(--header__flytitle-padding-h, var(--grid-spacing-mouse)) var(--header__flytitle-padding-v, var(--grid-spacing-fox));
+  padding: var(--header__flytitle-padding-v, var(--grid-spacing-mouse)) var(--header__flytitle-padding-h, var(--grid-spacing-fox));
+  padding-bottom: var(--header__flytitle-padding-bottom, 0);
   display: inline-block;
   background-color: var(--header__flytitle-background-color, color(var(--color-thimphu) a(-40%)));
 }
@@ -68,17 +77,18 @@
 }
 
 @media (--header-viewport-small) {
+  .header {
+    background-image: none !important;
+  }
   .header__wrapper {
-    padding:  var(--header-padding-top, 150px) var(--grid-gutter-m) var(--header-padding-bottom, 0);
-    height: var(--header-height, 430px);
+    padding:  var(--header-padding-top, var(--grid-spacing-hedgehog)) var(--grid-gutter-m) var(--header-padding-bottom, 0);
+    height: var(--header-height, 300px);
   }
   .header--large-mode .header__title {
     padding:
       var(--header__title-padding-top, var(--grid-spacing-rabbit))
       var(--header__title-padding-v, 15%)
       var(--header__title-padding-bottom, var(--grid-spacing-fox));
-    /* Prevent overlapping with the illustration and the text. */
-    min-height: 3em;
   }
   .header__flytitle {
     margin: auto;
@@ -92,12 +102,16 @@
   .header {
     height: var(--header-viewport-big-height, 300px);
   }
+  .header__mobile-image {
+    background-image: none !important;
+  }
   .header__wrapper {
     padding:  var(--header-padding-top, var(--grid-spacing-hedgehog)) var(--grid-gutter-m) var(--header-padding-bottom, 0);
   }
 
   .header__content {
     width: 50%;
+    min-width: 35ch;
     margin-right: auto;
     text-align: left;
   }
