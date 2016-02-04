@@ -19,7 +19,8 @@
     "*.css",
     "!karma.conf.js",
     "!testbundle.js",
-    "assets/header-democracyinamerica.svg"
+    "assets/header-democracyinamerica.svg",
+    "assets/header-democracyinamerica-mobile.svg"
   ],
   "browserify": {
     "transform": [
