@@ -27,7 +27,7 @@ describe(`A header`, () => {
       header.props.itemType.should.equal('http://schema.org/Article');
     });
     describe('it is composed by 2 main blocks', () => {
-      const headerContent = header.props.children.props.children;
+      const headerContent = header.props.children.props.children.props.children;
       describe(`it has a text group`, () => {
         it(`the text group always renders a title that is mandatory and wrapped on an H1 tag`, () => {
           const title = headerContent.props.children[0];
@@ -45,7 +45,7 @@ describe(`A header`, () => {
       text: 'Text',
     }));
     const header = shallowRenderer.getRenderOutput();
-    const headerContent = header.props.children.props.children;
+    const headerContent = header.props.children.props.children.props.children;
     it(`it can render a flytitle in a h2 tag with a header__flytitle className`, () => {
       const flyTitle = headerContent.props.children[0];
       flyTitle.type.should.equal('h2');
