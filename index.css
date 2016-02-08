@@ -35,10 +35,9 @@
 
 .header__title {
   font-size: var(--text-size-step-5);
-  line-height: var(--text-line-height-body-bold-on-step-5);
-  letter-spacing: var(--text-letter-spacing-body-bold-on-step-5);
-  font-weight: bold;
-  font-family: 'Halifax Bold';
+  line-height: var(--text-line-height-sans-bold-on-step-5);
+  letter-spacing: var(--text-letter-spacing-sans-bold-on-step-5);
+  font-family: 'EcoSans';
   margin: 0;
 }
 
@@ -56,8 +55,8 @@
 
 .header__flytitle {
   font-size: var(--text-size-step--1);
-  font-weight: lighter;
-  font-family: 'Halifax Regular';
+  font-family: 'EcoSans';
+  font-weight: normal;
   color: var(--header__flytitle-color, var(--color-economist));
   margin-bottom: var(--grid-spacing-mouse);
   padding: var(--header__flytitle-padding-v, var(--grid-spacing-mouse)) var(--header__flytitle-padding-h, var(--grid-spacing-fox));
@@ -68,9 +67,9 @@
 
 .header__text {
   font-size: var(--text-size-step-0);
-  line-height: var(--text-line-height-body-light-on-step-0);
-  font-weight: lighter;
-  font-family: 'Halifax Light';
+  line-height: var(--text-line-height-sans-light-on-step-0);
+  font-weight: 300;
+  font-family: 'EcoSans';
   color: var(--header__text-color, var(--color-thimphu));
   margin-top: var(--header__text-margin-top, 0);
   vertical-align: middle;

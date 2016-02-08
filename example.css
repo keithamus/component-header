@@ -7,11 +7,11 @@ a {
 }
 
 .teaser {
-  font-family: var(--fontfamily-body);
+  font-family: var(--fontfamily-sans);
 }
 
 html {
-  line-height: var(--text-line-height-body-on-step-0);
+  line-height: var(--text-line-height-sans-on-step-0);
   font-size: 18px;
 }
 
