@@ -3,7 +3,6 @@
 .header__additional-element {
   color: var(--header__additional-element-color, var(--color-thimphu));
   margin: var(--grid-spacing-sheep) 0;
-  font-family: 'Halifax Regular';
 }
 
 .header__follow-us-title {
