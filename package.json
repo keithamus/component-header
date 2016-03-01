@@ -171,8 +171,8 @@
     "react": "^0.14.0||^0.14.0-rc"
   },
   "assets": [
-    "header-democracyinamerica-mobile.svg",
-    "header-democracyinamerica.svg"
+    "assets/header-democracyinamerica-mobile.svg",
+    "assets/header-democracyinamerica.svg"
   ],
   "pre-commit": [
     "lint"
