@@ -170,6 +170,10 @@
   "peerDependencies": {
     "react": "^0.14.0||^0.14.0-rc"
   },
+  "assets": [
+    "header-democracyinamerica-mobile.svg",
+    "header-democracyinamerica.svg"
+  ],
   "pre-commit": [
     "lint"
   ]
