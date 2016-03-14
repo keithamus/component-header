@@ -33789,8 +33789,8 @@ function Header() {
     'header',
     {
       className: _classnames2['default']('header', className, {
-        'header--small-mode': smallMode === true,
-        'header--large-mode': smallMode === false
+        'header--small-mode': Boolean(smallMode) === true,
+        'header--large-mode': Boolean(smallMode) === false
       }),
       itemScope: true, itemType: itemType, itemProp: itemProp,
       role: 'header',
@@ -33920,6 +33920,8 @@ exports.__esModule = true;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+require('babel-polyfill');
+
 var _ = require('./');
 
 var _2 = _interopRequireDefault(_);
@@ -33954,7 +33956,7 @@ exports['default'] = _react2['default'].createElement(
 );
 module.exports = exports['default'];
 
-},{"./":484,"react":"react"}],"react-dom":[function(require,module,exports){
+},{"./":484,"babel-polyfill":2,"react":"react"}],"react-dom":[function(require,module,exports){
 'use strict';
 
 module.exports = require('react/lib/ReactDOM');
